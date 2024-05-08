@@ -47,8 +47,26 @@ addButton.addEventListener("click", () => {
     addTodo(input.value.trim());
 });
 
+function updateStatus(todo) {
+   let todoName = todo.parentElement.lastElementChild;
+   if (todo.checked) {
+      todoName.classList.add("checked");
+      todosJson[todo.id].status = "completed";
+   } else {
+      todoName.classList.remove("checked");
+      todosJson[todo.id].status = "pending";
+   }
+      localStorage.setItem("todos",JSON.stringify(todosJson));
+   }
 
 
+function remove(todo) {
+   const index = todo.dataset.index;
+   todosJson.splice(index, 1);
+   showTodos();
+   localStorage.setItem("todos", JSON.stringify(todosJson))
+
+}
 
 
 

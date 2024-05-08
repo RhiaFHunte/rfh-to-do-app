@@ -33,10 +33,9 @@ h1 {
 
 .input-container {
    display: flex;
-   justify-content: space-between;
-   justify-content: center; 
-   align-items: center;  
-   margin-bottom: 25px;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
 }
 
 .todo-input {
@@ -45,10 +44,9 @@ h1 {
    max-width: 350px;
    min-width: 150px; 
    outline: none;
-   padding: 10px 10px 10px 20px;
+   padding: 10px 10px 10px 30px;
    border-radius: 20px;
-   margin-right: 20px;
-
+   margin-right: 16px;
 }
 
 .todo-input::placeholder {
@@ -74,16 +72,115 @@ h1 {
    display: block;
 }
 
+.todos-container {
+   width: 80%; 
+   margin: 10px; 
+}
+
 
 .todo {
+   display: flex;
+   flex-direction: row;
+   list-style-type: none;
+   justify-content: space-between;
+   color: #393838;
+   transition: all 0.2s ease;
+}
+
+.todo-item {
    list-style: none;
+   background-color: #ffffff88;
+   padding: 10px;
+   padding-left: 20px;
+   margin-bottom: 10px;
+   border-radius: 5px;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.todo:first-child {
+   margin-top:  0;
+}
+
+.todo:hover {
+   background-color: #a6a68a;
+}
+
+.todo label {
+   cursor: pointer;
+   width: fit-content;
    display: flex;
    align-items: center;
-   justify-content: space-between;
-   background-color: #DDDDBB;
-   color: #393838;
-   margin: 10px 0;
-   padding: 10px 12px;
+   color: #eee;
+}
+
+.todo span {
+   padding-left: 20px;
+   position: relative;
+   cursor: pointer;
+}
+
+span::before {
+   content: "";
+   height: 20px;
+   width: 20px;
+   position: absolute;
+   margin-left: -30px;
+   border-radius: 100px;
+}
+
+input[type='checkbox'] {
+   visibility: hidden;
+}
+
+input:checked + span {
+   text-decoration: line-through;
+}
+
+.todo:hover input:checked + span::before, input:checked + span::before {
+   background: url(/Assets/check-circle.svg) 50% 50% no-repeat palegreen;
 
 }
+
+.todo:hover span::before {
+   border-color: #eee;
+}
+
+.todo .delete-btn {
+   background-color: palevioletred;
+   border: none;
+   cursor: pointer;
+   font-size: 24px;
+}
+
+.todos-container {
+   padding: 10px;
+   height: 300px;
+   overflow: overlay;
+}
+
+.todos ul {
+   padding-left: 10% 0;
+}
+
+.todos-container::-webkit-scrollbar-track {
+   background: #fbc7d89e;
+   border-radius: 20px;
+}
+
+
+.todos-container:hover::-webkit-scrollbar {
+   width: 7px;
+}
+
+.todos-container::-webkit-scrollbar-thumb {
+   background: #00000081;
+   border-radius: 20px;
+}
+
+
+
+
+
+
 
