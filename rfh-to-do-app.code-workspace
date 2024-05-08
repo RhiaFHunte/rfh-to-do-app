@@ -1,0 +1,16 @@
+{
+   "folders": [
+      {
+         "path": "."
+      },
+      {
+         "path": "../../../Downloads/bootstrap-5.0.2-dist/css"
+      },
+      {
+         "path": "../../../Downloads/bootstrap-5.0.2-dist/js"
+      }
+   ],
+   "settings": {
+      "liveServer.settings.multiRootWorkspaceName": "rfh-to-do-app"
+   }
+}
