@@ -3,6 +3,10 @@ const addButton = document.querySelector(".add-button");
 const todosHtml = document.querySelector(".todos");
 const emptyImage = document.querySelector(".empty-image");
 let todosJson = JSON.parse(localStorage.getItem("todos")) || [];
+const filters = document.querySelectorAll(".filter");
+let filter = '';
+
+showTodos();
 
 function getTodoHtml(todo, index) {
     let checked = todo.status === "completed" ? "checked" : "";
@@ -38,13 +42,19 @@ function addTodo(todo) {
 }
 
 input.addEventListener("keyup", e => {
-    if (e.key === "Enter") {
-        addTodo(input.value.trim());
+    let todo = input.value.trim();
+    if (!todo || e.key != "Enter") {
+      return;
     }
-});
+    addTodo(todo);
+  });
 
 addButton.addEventListener("click", () => {
-    addTodo(input.value.trim());
+    let todo = input.value.trim();
+    if (!todo) {
+        return
+    }
+    addTodo(todo);
 });
 
 function updateStatus(todo) {
@@ -64,7 +74,7 @@ function remove(todo) {
    const index = todo.dataset.index;
    todosJson.splice(index, 1);
    showTodos();
-   localStorage.setItem("todos", JSON.stringify(todosJson))
+   localStorage.setItem("todos", JSON.stringify(todosJson));
 
 }
 

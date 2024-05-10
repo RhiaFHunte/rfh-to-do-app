@@ -138,7 +138,7 @@ input:checked + span {
 }
 
 .todo:hover input:checked + span::before, input:checked + span::before {
-   background: url(/Assets/check-circle.svg) 50% 50% no-repeat palegreen;
+   background: url(/Assets/check-circle.svg) 50% 50% no-repeat rgb(130, 203, 130);
 
 }
 
@@ -147,24 +147,19 @@ input:checked + span {
 }
 
 .todo .delete-btn {
-   background-color: palevioletred;
+   background-color: transparent;
    border: none;
    cursor: pointer;
    font-size: 24px;
 }
 
 .todos-container {
-   padding: 10px;
    height: 300px;
    overflow: overlay;
 }
 
-.todos ul {
-   padding-left: 10% 0;
-}
-
 .todos-container::-webkit-scrollbar-track {
-   background: #fbc7d89e;
+   background: transparent;
    border-radius: 20px;
 }
 
@@ -178,8 +173,35 @@ input:checked + span {
    border-radius: 20px;
 }
 
+.filters {
+   display: flex;
+   justify-content: space-between;
+}
+
+.filter {
+   padding: 5px 15px;
+   border-radius: 100px;
+   border: 2px solid grey;
+
+}
+
+.delete-all {
+   padding: 5px 15px;
+   border-radius: 100px;
+   border: 2px solid grey;
+}
+
+.filter.active, .filter:hover {
+   background-color:grey;
+   color: whitesmoke;
+}
 
 
+
+.delete-all:hover {
+   background-color:palevioletred;
+   color: whitesmoke;
+}
 
 
 
