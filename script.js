@@ -1,24 +1,26 @@
-const input = document.querySelector(".todo-input"); // Ensure the correct selector if not working
+const input = document.querySelector("input");
 const addButton = document.querySelector(".add-button");
 const todosHtml = document.querySelector(".todos");
 const emptyImage = document.querySelector(".empty-image");
 let todosJson = JSON.parse(localStorage.getItem("todos")) || [];
+const deleteAllButton = document.querySelector(".delete-all");
 const filters = document.querySelectorAll(".filter");
 let filter = '';
 
 showTodos();
 
 function getTodoHtml(todo, index) {
-    let checked = todo.status === "completed" ? "checked" : "";
-    return `
-    <li class="todo-item">
-        <label for="todo-${index}">
-            <input id="todo-${index}" type="checkbox" ${checked} onclick="updateStatus(this)">
-            <span ${checked ? 'class="completed"' : ''}>${todo.name}</span>
-        </label>
-        <button class="delete-btn" data-index="${index}" onclick="remove(this)">
-            <i class="fa fa-times"></i>
-        </button>
+    if (filter && filter != todo.status) {
+      return '';
+    }
+    let checked = todo.status == "completed" ? "checked" : "";
+    return /* html */  `
+    <li class="todo">
+      <label for="${index}">
+        <input id="${index}" onclick="updateStatus(this)" type="checkbox" ${checked}>
+        <span class="${checked}">${todo.name}</span>
+      </label>
+      <button class="delete-btn" data-index="${index}" onclick="remove(this)"><i class="fa fa-times"></i></button>
     </li>
     `;
 }
@@ -33,13 +35,12 @@ function showTodos() {
     }
 }
 
-function addTodo(todo) {
-    if (!todo) return; // Check for empty todo before proceeding
+function addTodo(todo)  {
+    input.value = "";
     todosJson.unshift({ name: todo, status: "pending" });
     localStorage.setItem("todos", JSON.stringify(todosJson));
     showTodos();
-    input.value = ""; // Clear the input after the todo is added
-}
+  }
 
 input.addEventListener("keyup", e => {
     let todo = input.value.trim();
@@ -52,35 +53,50 @@ input.addEventListener("keyup", e => {
 addButton.addEventListener("click", () => {
     let todo = input.value.trim();
     if (!todo) {
-        return
+      return;
     }
     addTodo(todo);
-});
+  });
 
 function updateStatus(todo) {
-   let todoName = todo.parentElement.lastElementChild;
-   if (todo.checked) {
+    let todoName = todo.parentElement.lastElementChild;
+    if (todo.checked) {
       todoName.classList.add("checked");
       todosJson[todo.id].status = "completed";
-   } else {
+    } else {
       todoName.classList.remove("checked");
       todosJson[todo.id].status = "pending";
-   }
-      localStorage.setItem("todos",JSON.stringify(todosJson));
-   }
+    }
+    localStorage.setItem("todos", JSON.stringify(todosJson));
+  }
 
 
-function remove(todo) {
-   const index = todo.dataset.index;
-   todosJson.splice(index, 1);
-   showTodos();
-   localStorage.setItem("todos", JSON.stringify(todosJson));
-
-}
-
+   function remove(todo) {
+    const index = todo.dataset.index;
+    todosJson.splice(index, 1);
+    showTodos();
+    localStorage.setItem("todos", JSON.stringify(todosJson));
+  }
 
 
+filters.forEach(function (el) {
+    el.addEventListener("click", (e) => {
+      if (el.classList.contains('active')) {
+        el.classList.remove('active');
+        filter = '';
+      } else {
+        filters.forEach(tag => tag.classList.remove('active'));
+        el.classList.add('active');
+        filter = e.target.dataset.filter;
+      }
+      showTodos();
+    });
+  });
 
-
+deleteAllButton.addEventListener("click", () => {
+    todosJson = [];
+    localStorage.setItem("todos", JSON.stringify(todosJson));
+    showTodos();
+  });
 
 

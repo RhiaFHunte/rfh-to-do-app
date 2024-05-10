@@ -7,21 +7,37 @@
    box-sizing: border-box;
 }
 
+
+@media (max-width: 600px)  {
+   .todos {
+      padding-left: 0;
+   }
+}
+
+.dashboard {
+   max-width: 1440px;
+   margin: 0 auto;
+}
+
 body {
    font-family: 'poppins', sans-serif;
    height: 100vh;
    display: flex;
    align-items: center;
    justify-content: center;
-   background: #DDDDBB
+   background: #e8e0cc
 }
 
 .container {
-   width: 600px;
+   align-items: center;
+   width: 800px;
    height: 600px;
-   background: rgba(255, 255, 255, 0.496);
+   min-height: 400px;
+   padding: 30px;
+   background: hwb(0 94% 6% / 0.432);
+   border: 2px solid #1E2B3F;
+   box-shadow: 4px 4px 0 #1E2B3F;
    border-radius: 25px;
-  /* border: 1px solid rgba(60, 60, 60, 0.468); */
    backdrop-filter: blur (15px);
 }
 
@@ -56,8 +72,8 @@ h1 {
 .add-button {
    border: none;
    outline: none;
-   background: #39383875;
-   color: whitesmoke;
+   background: #e33c8f6f;
+   color:#393838;
    font-size: 28px;
    cursor: pointer;
    border-radius: 40px;
@@ -73,36 +89,39 @@ h1 {
 }
 
 .todos-container {
-   width: 80%; 
+   width: 600px; 
    margin: 10px; 
 }
+
 
 
 .todo {
    display: flex;
    flex-direction: row;
    list-style-type: none;
+   align-items: center;
    justify-content: space-between;
-   color: #393838;
+   background-color: #a6a68a6d;
+   color: #80808061;
+   margin: 10px 0;
+   padding: 10px 12px;
+   border-radius: 10px;
    transition: all 0.2s ease;
 }
 
-.todo-item {
-   list-style: none;
-   background-color: #ffffff88;
-   padding: 10px;
-   padding-left: 20px;
-   margin-bottom: 10px;
-   border-radius: 5px;
-   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
 
 
 .todo:first-child {
    margin-top:  0;
+
 }
 
+.todo:last-child {
+   margin-bottom: 0;
+ }
+
 .todo:hover {
+   cursor: pointer;
    background-color: #a6a68a;
 }
 
@@ -111,7 +130,7 @@ h1 {
    width: fit-content;
    display: flex;
    align-items: center;
-   color: #eee;
+   color: #393838;
 }
 
 .todo span {
@@ -150,30 +169,41 @@ input:checked + span {
    background-color: transparent;
    border: none;
    cursor: pointer;
-   font-size: 24px;
+   font-size: 20px;
 }
 
 .todos-container {
+   position: relative;
    height: 300px;
-   overflow: overlay;
+   overflow: overlay;  
+   padding-right: 10px; 
+
 }
 
 .todos-container::-webkit-scrollbar-track {
    background: transparent;
    border-radius: 20px;
+   margin-left: 10px; 
 }
 
 
-.todos-container:hover::-webkit-scrollbar {
+.todos-container::-webkit-scrollbar  {
+   padding: 10px;
+   width: 0;
+ }
+ 
+ .todos-container:hover::-webkit-scrollbar  {
+
    width: 7px;
-}
+ }
 
 .todos-container::-webkit-scrollbar-thumb {
-   background: #00000081;
+   background: #00000046;
    border-radius: 20px;
 }
 
 .filters {
+   cursor: default;
    display: flex;
    justify-content: space-between;
 }
