@@ -8,9 +8,13 @@
    <link rel="stylesheet" href="/style.css" class="rel">
    <title>Daily Task App</title>
 </head>
+
+
+
+
+
 <body>
-<div class="dashboard">
-<div class="left-container">
+
 <div class="container">
    <h1>Daily Task List</h1>
    <div class="input-container">
@@ -19,18 +23,33 @@
       <i class="fa fa-plus-circle"></i>
    </button>
    </div>
+
+<!-- FILTERS SECTION -->
    <div class="filters">
       <div class="filter" data-filter="completed">Complete</div>
       <div class="filter" data-filter="pending">Incomplete</div>
       <div class="delete-all">Delete all</div>
       </div>
-      
-   <div class="todos-container">
-      <ul class="todos"></ul>
-         <img class="empty-image" src="/Assets/undraw_task_list_6x9d.svg">
+
+
+<!-- TO DO LIST SECTION -->
+<div class="todos-container">
+   <ul class="todos">
+       <li class="todo">
+           <label class="custom-checkbox" for="check-24">
+               <input type="checkbox" id="check-24" name="check" value="" />
+               <span class="checkmark"></span> 
+               <i class="fa fa-times delete-icon" aria-hidden="true"></i>
+            </label>
+       </li>
+   </ul>
+   <img class="empty-image" src="/Assets/undraw_task_list_6x9d.svg">
+</div>
+
+   
+   
    </div>
-</div>
-</div>
+
 </div>
 </div>
 <script src="./script.js"></script>

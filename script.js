@@ -100,3 +100,20 @@ deleteAllButton.addEventListener("click", () => {
   });
 
 
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const checkboxes = document.querySelectorAll('.custom-checkbox input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function () {
+        let checkmark = this.nextElementSibling;
+        if (this.checked) {
+          checkmark.style.backgroundColor = "#4CAF50";
+          checkmark.style.borderColor = "#4CAF50";
+        } else {
+          checkmark.style.backgroundColor = "#eee";
+          checkmark.style.borderColor = "#ddd";
+        }
+      });
+    });
+  });
+  
