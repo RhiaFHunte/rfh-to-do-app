@@ -1,21 +1,23 @@
-/* Base settings for all elements */
 *, *::before, *::after {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
 }
 
-/* Body styling */
+
 body {
-   font-family: 'Poppins', sans-serif;
+   font-family: "Quicksand", sans-serif;
    height: 100vh;
    display: flex;
    align-items: center;
    justify-content: center;
    background: #edf1f1
+   justify-content: center;
+
+
 }
 
-/* Main container styling */
+
 .container {
    align-items: center;
    width: 600px;
@@ -30,12 +32,15 @@ body {
 }
 
 h1 {
+   font-family: "Poppins", sans-serif;
+   font-weight: 800;
+   letter-spacing: .2rem;
    color: #393838;
    text-align: center;
    margin: 36px;
 }
 
-/* Input container within the main container */
+
 .input-container {
    display: flex;
    justify-content: center;
@@ -43,7 +48,7 @@ h1 {
    padding: 20px;
 }
 
-/* Styling for input and add-button */
+
 .todo-input {
    flex: 1; 
    width: auto;
@@ -70,7 +75,7 @@ h1 {
    height: 40px;
 }
 
-/* Styling for the filter buttons */
+/* STYLING FOR FILTER BUTTONS */
 .filters {
    display: flex;
    justify-content: space-between;
@@ -78,7 +83,7 @@ h1 {
    padding: 10px 0;
 }
 
-.filter, .delete-all {
+.filter {
    padding: 1rem 1rem;
    border-radius: 0.75em;
    border: 2px solid #b18597;
@@ -95,13 +100,40 @@ h1 {
    transform-style: preserve-3d;
 }
 
-.filter:hover, .delete-all:hover {
+.delete-all {
+   padding: 1rem 1rem;
+   border-radius: 0.75em;
+   border: 2px solid #b18597;
+   cursor: pointer;
+   font-size: 12px;
+   font-family: inherit;
+   vertical-align: middle;
+   text-decoration: none;
+   background: #f6d7d7;
+   color: #382b22;
+   font-weight: 600;
+   text-transform: uppercase;
+   transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+   transform-style: preserve-3d;
+}
+
+.filter:hover {
    background: #ffe9e9;
    transform: translate(0, 0.25em);
 }
 
-.filter:active, .delete-all:active {
+.filter:active {
    background: #ffe9e9;
+   transform: translate(0em, 0.75em);
+}
+
+.delete-all:hover {
+   background: #f7cccc;
+   transform: translate(0, 0.25em);
+}
+
+.delete-all:active {
+   background: #f7cccc;
    transform: translate(0em, 0.75em);
 }
 
@@ -112,7 +144,7 @@ h1 {
    margin: auto;
 }
 
-/* Todos list styling */
+/* STYLING FOR TODO LIST */
 .todos-container {
    width: 500px;
    margin-top: 20px;
@@ -174,16 +206,21 @@ input[type="checkbox"] {
 
 /* CUSTOM DELETE ITEM STYLING */
 
-
-.fafa-times {
+.todo .fa.fa-times {
    position: absolute;
-   background-color: #b18597;
+   right: 10px; 
+   top: 50%;  
+   transform: translateY(-50%);  
+   color: #b18597;
+   cursor: pointer; 
+   font-size: 20px;
+   transition: color 0.3s ease; 
 }
 
 
-
-
-
+.todo .fa.fa-times:hover {
+   color: #914967; 
+}
 
 
 
@@ -199,6 +236,10 @@ input[type="checkbox"] {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+   .body {
+       margin-left: 20px;
+       margin-right: 20px;
+   }
    .container {
        width: 100%; /* Full width for small screens */
        padding: 20px; /* Reduced padding for smaller screens */
@@ -207,7 +248,7 @@ input[type="checkbox"] {
    .filter, .delete-all {
        padding: 0.5rem 1rem; /* Smaller padding for compact appearance */
        margin: 5px; /* Smaller margin to reduce space between buttons */
-       font-size: 12px; /* Smaller font size for better fit on small screens */
+       font-size: 10px; /* Smaller font size for better fit on small screens */
    }
 
    .todo-input, .todos-container {
@@ -217,7 +258,7 @@ input[type="checkbox"] {
    .add-button {
        width: 50px; /* Slightly larger button for easier interaction */
        height: 50px; /* Adjust height for better accessibility */
-       margin: 10px 0; /* Provide vertical spacing between elements */
+       margin: 11px 0; /* Provide vertical spacing between elements */
    }
 }
 
