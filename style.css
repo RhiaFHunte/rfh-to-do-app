@@ -236,11 +236,10 @@ input[type="checkbox"] {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-   .body {
-       margin-left: 20px;
-       margin-right: 20px;
-   }
+
    .container {
+      margin-left: 20px;
+      margin-right: 20px;
        width: 100%; /* Full width for small screens */
        padding: 20px; /* Reduced padding for smaller screens */
    }
