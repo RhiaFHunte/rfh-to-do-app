@@ -12,13 +12,13 @@ body {
    align-items: center;
    justify-content: center;
    background: #edf1f1
-   justify-content: center;
-
-
 }
 
 
+
 .container {
+   margin-left: 20px;
+   margin-right: 20px;
    align-items: center;
    width: 600px;
    height: 650px;
@@ -237,11 +237,11 @@ input[type="checkbox"] {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
 
-   .container {
+   .container {/*
       margin-left: 20px;
-      margin-right: 20px;
-       width: 100%; /* Full width for small screens */
-       padding: 20px; /* Reduced padding for smaller screens */
+      margin-right: 20px;*/
+      width: 100%; /* Full width for small screens */
+      padding: 20px; /* Reduced padding for smaller screens */
    }
 
    .filter, .delete-all {
