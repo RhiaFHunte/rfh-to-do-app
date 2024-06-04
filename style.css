@@ -24,7 +24,7 @@ body {
    height: 650px;
    min-height: 400px;
    padding: 50px;
-   background: hwb(0 94% 6% / 0.432);
+   background: rgba(255, 255, 255, 0.435);
    border: 2px solid #1E2B3F;
    box-shadow: 4px 4px 0 #1E2B3F;
    border-radius: 25px;
@@ -68,11 +68,14 @@ h1 {
    border: none;
    outline: none;
    color: #393838;
-   font-size: 28px;
+   font-size: 30px;
    cursor: pointer;
-   border-radius: 40px;
-   width: 40px;
-   height: 40px;
+   border-radius: 100px;
+   width: 30px;
+   height: 30px;
+   margin: 11px 0; /* Provide vertical spacing between elements */
+
+
 }
 
 /* STYLING FOR FILTER BUTTONS */
@@ -157,7 +160,7 @@ h1 {
 
 
 .delete-all:hover {
-   background: #f7cccc;
+   background: #fa9999;
    transform: translate(0, 0.25em);
 }
 
@@ -293,6 +296,12 @@ input[type="checkbox"] {
        width: 50px; /* Slightly larger button for easier interaction */
        height: 50px; /* Adjust height for better accessibility */
        margin: 11px 0; /* Provide vertical spacing between elements */
+   }
+   .empty-image {
+      width: 200px;
+      height: auto;
+      display: block;
+      margin: auto;
    }
 
 }
