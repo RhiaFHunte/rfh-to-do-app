@@ -52,7 +52,7 @@ h1 {
 .todo-input {
    flex: 1; 
    width: auto;
-   max-width: 350px;
+   max-width: 450px;
    min-width: 150px;
    outline: none;
    padding: 10px 10px 10px 30px;
@@ -193,7 +193,7 @@ h1 {
    flex-direction: row;
    align-items: center;
    justify-content: space-between;
-   background-color: #203d5b1b;
+   background-color: rgb(255, 255, 255);
    margin: 10px 0;
    padding: 10px 12px;
    border-radius: 10px;
@@ -204,7 +204,7 @@ h1 {
 
 .todo:hover {
    cursor: pointer;
-   background-color: #203d5b3f;
+   background-color: #0000000e;
 }
 
 .todo label {
@@ -234,10 +234,10 @@ input[type="checkbox"] {
 
 
 /* CUSTOM DELETE ITEM STYLING */
-/* 
+
 .delete-btn {
-   display: none; Hides the default delete button 
-}*/
+   display: contents;
+}
 
 /* Custom delete item styling */
 .todo .fa.fa-times {
@@ -245,16 +245,20 @@ input[type="checkbox"] {
    right: 10px;
    top: 50%;
    transform: translateY(-50%);
-   color:  #fb706f;
+   color: #fb6f6f91;
    cursor: pointer;
    font-size: 20px;
    transition: color 0.3s ease;
 }
 
 .todo .fa.fa-times:hover {
-   color: #f90000;
+   color: #f9000090;
 }
 
+.todo {
+   position: relative;
+   padding-right: 40px; /* Add padding to make room for the icon */
+}
 
 
 
