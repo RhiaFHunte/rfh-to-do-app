@@ -293,9 +293,9 @@ input[type="checkbox"] {
    }
       
    .add-button {
-       width: 50px; /* Slightly larger button for easier interaction */
-       height: 50px; /* Adjust height for better accessibility */
-       margin: 11px 0; /* Provide vertical spacing between elements */
+      width: 30px;
+      height: 30px;
+      margin: 11px 0; /* Provide vertical spacing between elements */
    }
    .empty-image {
       width: 200px;
