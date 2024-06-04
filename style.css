@@ -83,10 +83,27 @@ h1 {
    padding: 10px 0;
 }
 
-.filter {
+.filter-complete {
    padding: 1rem 1rem;
-   border-radius: 0.75em;
-   border: 2px solid #b18597;
+   border-radius: 10em;
+   border: 2px solid #60AB9A;
+   cursor: pointer;
+   font-size: 12px;
+   font-family: inherit;
+   vertical-align: middle;
+   text-decoration: none;
+   background: #f7fff0;
+   color: #382b22;
+   font-weight: 600;
+   text-transform: uppercase;
+   transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+   transform-style: preserve-3d;
+}
+
+.filter-pending {
+   padding: 1rem 1rem;
+   border-radius: 10em;
+   border: 2px solid #f8a37c;
    cursor: pointer;
    font-size: 12px;
    font-family: inherit;
@@ -102,8 +119,8 @@ h1 {
 
 .delete-all {
    padding: 1rem 1rem;
-   border-radius: 0.75em;
-   border: 2px solid #b18597;
+   border-radius: 10em;
+   border: 2px solid #fa9999;
    cursor: pointer;
    font-size: 12px;
    font-family: inherit;
@@ -117,15 +134,27 @@ h1 {
    transform-style: preserve-3d;
 }
 
-.filter:hover {
-   background: #ffe9e9;
+.filter-complete:hover {
+   background: #60AB9A;
    transform: translate(0, 0.25em);
 }
 
-.filter:active {
-   background: #ffe9e9;
+.filter-complete:active {
+   background: #60AB9A;
    transform: translate(0em, 0.75em);
 }
+
+.filter-pending:hover {
+   background: #f8a37c;
+   transform: translate(0, 0.25em);
+}
+
+.filter-pending:active {
+   background: #f8a37c;
+   transform: translate(0em, 0.75em);
+}
+
+
 
 .delete-all:hover {
    background: #f7cccc;
@@ -149,7 +178,7 @@ h1 {
    width: 500px;
    margin-top: 20px;
    position: relative;
-   height: 300px;
+   height: 280px;
    overflow: overlay;
    padding-right: 10px;
 }
@@ -200,35 +229,31 @@ input[type='checkbox']:checked + span {
 input[type="checkbox"] {
    width: 1em;
    height: 1rem;
-   accent-color: green;
+   accent-color: #60AB9A;
  }
 
 
 /* CUSTOM DELETE ITEM STYLING */
+/* 
+.delete-btn {
+   display: none; Hides the default delete button 
+}*/
 
+/* Custom delete item styling */
 .todo .fa.fa-times {
    position: absolute;
-   right: 10px; 
-   top: 50%;  
-   transform: translateY(-50%);  
-   color: #b18597;
-   cursor: pointer; 
+   right: 10px;
+   top: 50%;
+   transform: translateY(-50%);
+   color:  #fb706f;
+   cursor: pointer;
    font-size: 20px;
-   transition: color 0.3s ease; 
+   transition: color 0.3s ease;
 }
-
 
 .todo .fa.fa-times:hover {
-   color: #914967; 
+   color: #f90000;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -237,14 +262,14 @@ input[type="checkbox"] {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
 
-   .container {/*
-      margin-left: 20px;
-      margin-right: 20px;*/
-      width: 100%; /* Full width for small screens */
-      padding: 20px; /* Reduced padding for smaller screens */
-   }
+   .container {
+         width: 100%; /* Full width for small screens */
+         padding: 20px; /* Ensures at least 20px padding on smaller screens */
+         margin-left: 20px; /* Add margin if needed for overall layout */
+         margin-right: 20px; /* Add margin if needed for overall layout */
+     }
 
-   .filter, .delete-all {
+     .filter-pending, .filter-complete, .delete-all {
        padding: 0.5rem 1rem; /* Smaller padding for compact appearance */
        margin: 5px; /* Smaller margin to reduce space between buttons */
        font-size: 10px; /* Smaller font size for better fit on small screens */
@@ -252,16 +277,21 @@ input[type="checkbox"] {
 
    .todo-input, .todos-container {
        width: 100%; /* Ensures inputs and containers take full available width */
+       margin-left: 10px;
+       margin-right: 10px;
    }
 
+   .todos-container {
+      height: 230px;
+   }
+      
    .add-button {
        width: 50px; /* Slightly larger button for easier interaction */
        height: 50px; /* Adjust height for better accessibility */
        margin: 11px 0; /* Provide vertical spacing between elements */
    }
+
 }
-
-
 
 
 

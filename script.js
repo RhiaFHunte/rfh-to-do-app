@@ -4,7 +4,12 @@ const todosHtml = document.querySelector(".todos");
 const emptyImage = document.querySelector(".empty-image");
 let todosJson = JSON.parse(localStorage.getItem("todos")) || [];
 const deleteAllButton = document.querySelector(".delete-all");
-const filters = document.querySelectorAll(".filter");
+const filters = document.querySelectorAll(".filter-complete, .filter-pending");
+
+
+
+
+
 let filter = '';
 
 showTodos();

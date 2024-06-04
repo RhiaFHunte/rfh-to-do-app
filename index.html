@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
    <script src="https://kit.fontawesome.com/2e4de11302.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-   <div class="container" style="margin-left: 20px; margin-right: 20px;">
+   <div class="container">
       <h1>Daily Task List 📋</h1>
    <div class="input-container">
    <input class="todo-input" placeholder="Add a new task...">
@@ -25,8 +25,8 @@
 
 <!-- FILTERS SECTION -->
    <div class="filters">
-      <div class="filter" data-filter="completed">Complete</div>
-      <div class="filter" data-filter="pending">Incomplete</div>
+      <div class="filter-complete" data-filter="completed">Complete</div>
+      <div class="filter-pending" data-filter="pending">Incomplete</div>
       <div class="delete-all">Delete all</div>
       </div>
 
@@ -39,18 +39,14 @@
                <input type="checkbox" id="check-24" name="check" value="" />
                <span class="checkmark"></span> 
            </label>
-           <i class="fa fa-times delete-icon" aria-hidden="true"></i> <!-- Icon for deleting the task -->
+           <i class="fa fa-times delete-icon" aria-hidden="true"></i> <!-- Custom Font Awesome delete icon -->
+           <button class="delete-btn">Delete</button> <!-- Default delete button to be hidden -->
+
        </li>
    </ul>
    <img class="empty-image" src="/Assets/undraw_task_list_6x9d.svg">
 </div>
-
    
-   
-   </div>
-
-</div>
-</div>
 <script src="./script.js"></script>
 </body>
 </html>
